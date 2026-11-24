@@ -5,7 +5,7 @@
  * and sends as the bearer credential. Never echoes the code or token.
  */
 
-import { AUTH_API_URL, TOKEN_PREFIX } from "../constants.ts"
+import { AUTH_API_URL, TOKEN_PREFIX } from "../constants"
 
 export class DevinAuthError extends Error {
   readonly status: number

@@ -17,35 +17,35 @@
  * it lives in devin-engine, which depends on this package.
  */
 
-export * from "./errors.ts"
-export * from "./wire.ts"
-export * from "./metadata.ts"
-export * from "./auth.ts"
-export * from "./catalog.ts"
-export * from "./effort.ts"
-export * from "./chat.ts"
-export * from "./constants.ts"
+export * from "./errors"
+export * from "./wire"
+export * from "./metadata"
+export * from "./auth"
+export * from "./catalog"
+export * from "./effort"
+export * from "./chat"
+export * from "./constants"
 
 export {
   authorizeUrl,
-} from "./auth/url.ts"
+} from "./auth/url"
 export {
   challengeFor,
   generateState,
   generateVerifier,
-} from "./auth/pkce.ts"
+} from "./auth/pkce"
 export {
   exchangeCode,
-} from "./auth/exchange.ts"
+} from "./auth/exchange"
 export {
   startCallbackServer,
   type CallbackServer,
-} from "./auth/loopback.ts"
+} from "./auth/loopback"
 export {
   loginAuto,
   loginManual,
   type LoginFlow,
-} from "./auth/login.ts"
+} from "./auth/login"
 export {
   openBrowser,
-} from "./auth/browser.ts"
+} from "./auth/browser"
