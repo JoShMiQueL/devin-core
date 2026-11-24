@@ -1,0 +1,43 @@
+{
+  "name": "devin-core",
+  "version": "0.0.1",
+  "description": "Connect-RPC transport, auth, PKCE and model-catalog layer for the Devin (Cognition) backend — shared by devin-* clients",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "contract.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "devin",
+    "cognition",
+    "connect-rpc",
+    "swe",
+    "cascade"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "JoShMiQueL",
+    "email": "joshmiquel.cs@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoShMiQueL/devin-core.git"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.4",
+    "typescript": "^7.0.2"
+  }
+}
