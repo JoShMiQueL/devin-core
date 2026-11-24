@@ -6,17 +6,17 @@
  */
 
 import * as zlib from "node:zlib"
-import { DevinApiError } from "./errors"
+import { DevinApiError } from "./errors.js"
 import {
   encodeMessage,
   encodeString,
   encodeVarintField,
   frameConnectStream,
   iterFields,
-} from "./wire"
-import { buildMetadata } from "./metadata"
-import { clearCachedUserJwt, credentialKey, getCachedUserJwt } from "./auth"
-import { DEFAULT_API_SERVER } from "./constants"
+} from "./wire.js"
+import { buildMetadata } from "./metadata.js"
+import { clearCachedUserJwt, credentialKey, getCachedUserJwt } from "./auth.js"
+import { DEFAULT_API_SERVER } from "./constants.js"
 
 const STREAM_IDLE_MS = 120_000
 const STREAM_TTFB_MS = 60_000

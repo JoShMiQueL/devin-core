@@ -9,10 +9,10 @@
  * Originally ported from pi-devin-auth (MIT, Copyright (c) 2026 nmzpy).
  */
 
-import { DevinApiError } from "./errors"
-import { encodeMessage, iterFields } from "./wire"
-import { buildMetadata } from "./metadata"
-import { DEFAULT_API_SERVER } from "./constants"
+import { DevinApiError } from "./errors.js"
+import { encodeMessage, iterFields } from "./wire.js"
+import { buildMetadata } from "./metadata.js"
+import { DEFAULT_API_SERVER } from "./constants.js"
 
 const MINT_TIMEOUT_MS = 30_000
 

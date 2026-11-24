@@ -5,7 +5,7 @@
  * ported from pi-devin-auth (MIT, Copyright (c) 2026 nmzpy).
  */
 
-import { encodeMessage, encodeString, encodeTimestampBody, encodeVarintField } from "./wire"
+import { encodeMessage, encodeString, encodeTimestampBody, encodeVarintField } from "./wire.js"
 
 const VERSION_STRING = "2.0.0"
 

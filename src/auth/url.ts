@@ -5,7 +5,7 @@
  * server; without it, the webapp shows the user a code to paste instead.
  */
 
-import { WEBAPP_URL } from "../constants"
+import { WEBAPP_URL } from "../constants.js"
 
 export interface AuthorizeInput {
   state: string

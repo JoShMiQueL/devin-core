@@ -10,7 +10,7 @@
  */
 
 import { createServer, type Server } from "node:http"
-import { CALLBACK_PATH } from "../constants"
+import { CALLBACK_PATH } from "../constants.js"
 
 export interface CallbackServer {
   redirectUri: string

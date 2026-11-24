@@ -9,10 +9,10 @@
  *     Fallback for headless machines and environments where loopback
  *     redirects can't reach the browser.
  */
-import { authorizeUrl } from "./url"
-import { exchangeCode } from "./exchange"
-import { startCallbackServer, type CallbackServer } from "./loopback"
-import { challengeFor, generateState, generateVerifier } from "./pkce"
+import { authorizeUrl } from "./url.js"
+import { exchangeCode } from "./exchange.js"
+import { startCallbackServer, type CallbackServer } from "./loopback.js"
+import { challengeFor, generateState, generateVerifier } from "./pkce.js"
 
 export interface LoginFlow {
   /** URL to open in the browser. */

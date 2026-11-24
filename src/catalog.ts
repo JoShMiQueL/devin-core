@@ -6,12 +6,12 @@
  * Originally ported from pi-devin-auth (MIT, Copyright (c) 2026 nmzpy).
  */
 
-import { DevinApiError } from "./errors"
-import { encodeMessage, iterFields } from "./wire"
-import { buildMetadata } from "./metadata"
-import { clearCachedUserJwt, credentialKey, getCachedUserJwt } from "./auth"
-import { effortFromLabel, splitEffortSuffix } from "./effort"
-import { DEFAULT_API_SERVER } from "./constants"
+import { DevinApiError } from "./errors.js"
+import { encodeMessage, iterFields } from "./wire.js"
+import { buildMetadata } from "./metadata.js"
+import { clearCachedUserJwt, credentialKey, getCachedUserJwt } from "./auth.js"
+import { effortFromLabel, splitEffortSuffix } from "./effort.js"
+import { DEFAULT_API_SERVER } from "./constants.js"
 
 const CATALOG_TTL_MS = 10 * 60 * 1000
 const CATALOG_FETCH_TIMEOUT_MS = 10_000
