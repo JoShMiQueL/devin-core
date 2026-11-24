@@ -33,3 +33,16 @@ for await (const ev of streamChatEvents({ apiKey, modelUid: "swe-2-high", messag
 ```
 
 The compliance layer (refusal guard, system-override injection, guarded retry, sanitize, prune, model resolve) is **not** here — it lives in [`devin-engine`](https://github.com/JoShMiQueL/devin-engine), which depends on this package.
+
+## Ecosystem
+
+| Package | Role |
+| --- | --- |
+| **`devin-core`** (this) | Connect-RPC wire, auth, PKCE, model catalog |
+| `devin-engine` | guarded-retry pipeline over this package |
+| `devin-proxy` | standalone OpenAI-compatible proxy (npm + GitHub) |
+| `devin-proxy-py` | Python original — reference implementation |
+| `opencode-devin` | OpenCode v2 plugin |
+| `claude-devin` | Claude-compatible surface |
+
+Topic `devin-ecosystem` groups the repos on GitHub.
