@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.7](https://github.com/JoShMiQueL/devin-core/compare/v0.0.6...v0.0.7) (2026-11-25)
+
+
+### Bug Fixes
+
+* relax resolveModelUid input to the three fields it reads (ResolvableEntry) ([c2c9081](https://github.com/JoShMiQueL/devin-core/commit/c2c9081d025a7fe8c781fd201a418e8713674c89))
+
 ## [0.0.6](https://github.com/JoShMiQueL/devin-core/compare/v0.0.5...v0.0.6) (2026-11-25)
 
 
