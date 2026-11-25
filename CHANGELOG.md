@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.6](https://github.com/JoShMiQueL/devin-core/compare/v0.0.5...v0.0.6) (2026-11-25)
+
+
+### Features
+
+* catalog-driven resolveModelUid ([#8](https://github.com/JoShMiQueL/devin-core/issues/8)) ([952be57](https://github.com/JoShMiQueL/devin-core/commit/952be57d52ac3b0cb1a331af8fe72ee739a4d6f7))
+
 ## [0.0.5](https://github.com/JoShMiQueL/devin-core/compare/v0.0.4...v0.0.5) (2026-11-25)
 
 
