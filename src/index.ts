@@ -24,6 +24,7 @@ export * from "./auth.js"
 export * from "./catalog.js"
 export * from "./effort.js"
 export * from "./chat.js"
+export * from "./resolve.js"
 export * from "./constants.js"
 
 export {
@@ -49,4 +50,3 @@ export {
 export {
   openBrowser,
 } from "./auth/browser.js"
-// release-please smoke — conventional commit triggers the release PR
