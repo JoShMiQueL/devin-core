@@ -1,6 +1,6 @@
 {
   "name": "devin-core",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Connect-RPC transport, auth, PKCE and model-catalog layer for the Devin (Cognition) backend â€” shared by devin-* clients",
   "type": "module",
   "main": "./dist/index.js",
