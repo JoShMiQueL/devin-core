@@ -9,8 +9,14 @@
  * of a hardcoded tier table, so every family in the subscription is routable.
  */
 
-import type { ModelCatalogEntry } from "./catalog.js"
 import { defaultMember, splitEffortSuffix, toEffortLevel, withEffortSuffix } from "./effort.js"
+
+/** The three fields resolution reads — anything carrying them will do. */
+export interface ResolvableEntry {
+  modelUid: string
+  baseModelUid?: string
+  effortLevel?: string
+}
 
 /**
  * Resolve `modelId` + `effort` against the catalog.
@@ -29,7 +35,7 @@ import { defaultMember, splitEffortSuffix, toEffortLevel, withEffortSuffix } fro
  */
 export function resolveModelUid(
   modelId: string,
-  catalog: readonly ModelCatalogEntry[] | undefined,
+  catalog: readonly ResolvableEntry[] | undefined,
   requestedEffort?: unknown,
 ): string {
   const effort = toEffortLevel(requestedEffort)
