@@ -213,8 +213,17 @@ function decodeModelConfig(buf: Buffer): ModelCatalogEntry | undefined {
   if (modelUid.length === 0) return undefined
   const split = splitEffortSuffix(modelUid)
   const baseModelUid = split.baseModelUid
+  // The suffix effort always wins. The capability effort fills in for uids
+  // that do not carry one — but never for the bare uid itself: there the
+  // capability describes the server-side default, not a selectable effort,
+  // and adopting it would collide with the real suffixed member of the same
+  // effort (e.g. bare `swe-2-1` reporting "Low" duplicates `swe-2-1-low` and
+  // breaks the family's merge into variants).
   const effortLevel =
-    split.effortLevel ?? effortFromLabel(capabilities?.find((capability) => /^(reasoning )?effort$/i.test(capability.name))?.value)
+    split.effortLevel ??
+    (modelUid === baseModelUid
+      ? undefined
+      : effortFromLabel(capabilities?.find((capability) => /^(reasoning )?effort$/i.test(capability.name))?.value))
   return {
     modelUid,
     label: label || modelUid,
