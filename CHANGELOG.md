@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.4](https://github.com/JoShMiQueL/devin-core/compare/v0.0.3...v0.0.4) (2026-11-25)
+
+
+### Features
+
+* **core:** trigger release-please accumulation ([#2](https://github.com/JoShMiQueL/devin-core/issues/2)) ([f6f3ef9](https://github.com/JoShMiQueL/devin-core/commit/f6f3ef965ddfbb7a1ed419faa3a3df2deb3bf075))
+
 ## [0.0.3] — 2026-11-24
 
 ### Fixed
