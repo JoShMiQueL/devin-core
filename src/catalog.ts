@@ -124,7 +124,33 @@ async function fetchCatalog(apiKey: string, host: string, signal?: AbortSignal):
     const entry = decodeModelConfig(field.value)
     if (entry) byUid.set(entry.modelUid, entry)
   }
+  dropCollidingBareEfforts(byUid)
   return { byUid, fetchedAt: Date.now(), apiKey, host }
+}
+
+/**
+ * A bare uid whose capability effort duplicates a real suffixed sibling keeps
+ * neither copy: the suffix is the explicit encoding, so it wins and the bare
+ * drops back to no effort. Without this, bare `swe-2-1` (capability "Low")
+ * collides with `swe-2-1-low`, and consumers grouping the family by effort
+ * see two members for one effort — the merge into variants breaks and the
+ * family explodes into one model per uid. When no sibling carries the effort
+ * (e.g. `glm-5-2` IS the high member of its family), the bare keeps it.
+ */
+function dropCollidingBareEfforts(byUid: Map<string, ModelCatalogEntry>): void {
+  const families = new Map<string, ModelCatalogEntry[]>()
+  for (const entry of byUid.values()) {
+    const key = entry.baseModelUid ?? entry.modelUid
+    const family = families.get(key)
+    if (family) family.push(entry)
+    else families.set(key, [entry])
+  }
+  for (const [baseModelUid, family] of families) {
+    const bare = family.find((entry) => entry.modelUid === baseModelUid)
+    if (!bare?.effortLevel) continue
+    const collides = family.some((entry) => entry !== bare && entry.effortLevel === bare.effortLevel)
+    if (collides) bare.effortLevel = undefined
+  }
 }
 
 function decodeModelConfig(buf: Buffer): ModelCatalogEntry | undefined {
@@ -214,16 +240,14 @@ function decodeModelConfig(buf: Buffer): ModelCatalogEntry | undefined {
   const split = splitEffortSuffix(modelUid)
   const baseModelUid = split.baseModelUid
   // The suffix effort always wins. The capability effort fills in for uids
-  // that do not carry one — but never for the bare uid itself: there the
-  // capability describes the server-side default, not a selectable effort,
-  // and adopting it would collide with the real suffixed member of the same
-  // effort (e.g. bare `swe-2-1` reporting "Low" duplicates `swe-2-1-low` and
-  // breaks the family's merge into variants).
+  // that do not carry one — including the bare uid, for models whose family
+  // names no per-effort suffix (e.g. `glm-5-2` IS the high-effort member).
+  // When the bare uid's capability effort duplicates a real suffixed sibling
+  // (bare `swe-2-1` reporting "Low" next to `swe-2-1-low`), the suffix wins
+  // and the bare drops its copy — the collision resolution runs in
+  // `getCascadeModelConfigs`, once the whole family is known.
   const effortLevel =
-    split.effortLevel ??
-    (modelUid === baseModelUid
-      ? undefined
-      : effortFromLabel(capabilities?.find((capability) => /^(reasoning )?effort$/i.test(capability.name))?.value))
+    split.effortLevel ?? effortFromLabel(capabilities?.find((capability) => /^(reasoning )?effort$/i.test(capability.name))?.value)
   return {
     modelUid,
     label: label || modelUid,
