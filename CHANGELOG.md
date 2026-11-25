@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.5](https://github.com/JoShMiQueL/devin-core/compare/v0.0.4...v0.0.5) (2026-11-25)
+
+
+### Bug Fixes
+
+* **catalog:** bare uid drops its capability effort only when it collides with a suffixed sibling — swe-2-1 merges into variants again, while glm-5-2 keeps its legitimate high effort ([#6](https://github.com/JoShMiQueL/devin-core/issues/6)) ([2c242d3](https://github.com/JoShMiQueL/devin-core/commit/2c242d30b43979dea6290dab803e0e2ed5f064b5))
+
 ## [0.0.4](https://github.com/JoShMiQueL/devin-core/compare/v0.0.3...v0.0.4) (2026-11-25)
 
 
