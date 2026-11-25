@@ -49,3 +49,4 @@ export {
 export {
   openBrowser,
 } from "./auth/browser.js"
+// release-please smoke — conventional commit triggers the release PR
