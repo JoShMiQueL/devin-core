@@ -9,8 +9,8 @@
  * of a hardcoded tier table, so every family in the subscription is routable.
  */
 
-import type { ModelCatalogEntry } from "./catalog.ts"
-import { defaultMember, splitEffortSuffix, toEffortLevel, withEffortSuffix } from "./effort.ts"
+import type { ModelCatalogEntry } from "./catalog.js"
+import { defaultMember, splitEffortSuffix, toEffortLevel, withEffortSuffix } from "./effort.js"
 
 /**
  * Resolve `modelId` + `effort` against the catalog.

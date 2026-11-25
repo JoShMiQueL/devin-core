@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test"
-import { resolveModelUid } from "../src/resolve.ts"
-import type { ModelCatalogEntry } from "../src/catalog.ts"
+import { resolveModelUid } from "../src/resolve.js"
+import type { ModelCatalogEntry } from "../src/catalog.js"
 
 function entry(modelUid: string, effortLevel?: string, base?: string): ModelCatalogEntry {
   return {
